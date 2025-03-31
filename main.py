@@ -12,7 +12,7 @@ app = flask.Flask(__name__)
 def handle():
     data = flask.request.get_json()
     if "action" in data:
-        response = cl.handle(data["action"])
+        response = cl.handle(data["action"], **data)
         return flask.jsonify(response)
     else:
         flask.abort(
